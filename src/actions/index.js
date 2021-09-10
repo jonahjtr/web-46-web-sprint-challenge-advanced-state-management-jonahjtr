@@ -4,6 +4,7 @@ export const FETCH_SMURFS = "FETCH_SMURFS";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAIL = "FETCH_FAIL";
 export const ADD_SMURF = "ADD_SMURF";
+export const SET_ERROR = "SET_ERROR";
 
 export const getSmurf = () => (dispatch) => {
   dispatch(fetchSmurfs());
@@ -21,6 +22,10 @@ export const getSmurf = () => (dispatch) => {
 };
 
 export const fetchSmurfs = () => ({ type: FETCH_SMURFS });
+
+export const setError = (error) => {
+  return { type: SET_ERROR, payload: error };
+};
 
 export const addSmurf = (smurf) => {
   return { type: ADD_SMURF, payload: smurf };
