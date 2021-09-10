@@ -1,6 +1,34 @@
+import { FETCH_SMURF } from "../actions";
+
 export const initialState = {};
 
-const reducer = (state = initialState, action) => {};
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case FETCH_SMURF:
+      return {
+        ...state,
+        person: {},
+        isFetching: true,
+        error: "",
+      };
+    case FETCH_SUCCESS:
+      return {
+        ...state,
+        person: action.payload,
+        isFetching: false,
+        error: "",
+      };
+    case FETCH_FAIL:
+      return {
+        ...state,
+        person: {},
+        isFetching: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
 
 //**************DO NOT EDIT ANY CODE BEYOND THIS POINT**************//
 export default reducer;
