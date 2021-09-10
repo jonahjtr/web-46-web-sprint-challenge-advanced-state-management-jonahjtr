@@ -1,9 +1,6 @@
+export const initialState = {};
 
-export const initialState = {
-}
-
-const reducer = ()=>{
-}
+const reducer = (state = initialState, action) => {};
 
 //**************DO NOT EDIT ANY CODE BEYOND THIS POINT**************//
 export default reducer;
