@@ -1,17 +1,17 @@
 import axios from "axios";
-import axios from "axios";
 
-export const FETCH_START = "FETCH_START";
+export const FETCH_SMURFS = "FETCH_SMURFS";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAIL = "FETCH_FAIL";
+export const ADD_SMURF = "ADD_SMURF";
 
 export const getSmurf = () => (dispatch) => {
-  dispatch(fetchStart());
-
+  dispatch(fetchSmurfs());
   axios
-    .get("`http://localhost:3333/smurfs")
+    .get("http://localhost:3333/smurfs")
     .then((resp) => {
       dispatch(fetchSuccess(resp.data));
+      console.log("axios call", resp.data);
       // dispatch({type: FETCH_SUCCESS, payload:resp.data.results[0] });
     })
     .catch((err) => {
@@ -20,10 +20,10 @@ export const getSmurf = () => (dispatch) => {
     });
 };
 
-export const fetchStart = () => ({ type: FETCH_START });
+export const fetchSmurfs = () => ({ type: FETCH_SMURFS });
 
-export const fetchSuccess = (person) => {
-  return { type: FETCH_SUCCESS, payload: person };
+export const fetchSuccess = (smurf) => {
+  return { type: FETCH_SUCCESS, payload: smurf };
 };
 
 export const fetchFail = (error) => {
