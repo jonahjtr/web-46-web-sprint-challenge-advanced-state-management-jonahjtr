@@ -22,6 +22,10 @@ export const getSmurf = () => (dispatch) => {
 
 export const fetchSmurfs = () => ({ type: FETCH_SMURFS });
 
+export const addSmurf = (smurf) => {
+  return { type: ADD_SMURF, payload: smurf };
+};
+
 export const fetchSuccess = (smurf) => {
   return { type: FETCH_SUCCESS, payload: smurf };
 };

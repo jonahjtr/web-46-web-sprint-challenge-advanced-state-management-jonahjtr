@@ -5,8 +5,7 @@ const SmurfList = (props) => {
   const isLoading = false;
   const smurf = [];
 
-  console.log("hey", smurf);
-  if (isLoading) {
+  if (props.isLoading) {
     return <h1>Loading...</h1>;
   }
 
@@ -19,7 +18,7 @@ const SmurfList = (props) => {
   );
 };
 const mapStateToProps = (state) => {
-  return { smurf: state.smurf };
+  return { smurf: state.smurf, isLoading: state.isloading };
 };
 export default connect(mapStateToProps)(SmurfList);
 

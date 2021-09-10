@@ -2,8 +2,7 @@ import { ADD_SMURF, FETCH_SMURFS, FETCH_SUCCESS, FETCH_FAIL } from "../actions";
 
 export const initialState = {
   smurf: [],
-
-  isFetching: false,
+  isLoading: false,
   error: "",
 };
 
@@ -13,27 +12,28 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         smurf: state.smurf,
-        isFetching: true,
+        isLoading: true,
         error: "",
       };
     case FETCH_SUCCESS:
       return {
         ...state,
         smurf: action.payload,
-        isFetching: false,
+        isLoading: false,
         error: "",
       };
     case FETCH_FAIL:
       return {
         ...state,
-        smurf: {},
-        isFetching: false,
+        smurf: [],
+        isLoading: false,
         error: action.payload,
       };
     case ADD_SMURF:
       return {
         ...state,
         smurf: [...state.smurf, action.payload],
+        error: action.payload,
       };
     default:
       return state;
@@ -46,7 +46,7 @@ export default reducer;
 //Task List:
 //1. Adds the following state values into the initialState:
 //  - an array of smurfs
-//  - a boolean indicating if the app is loading
+//  - a boolean indicating if the app is isLoading
 //  - a string indicating a possible error message
 
 //2. Add in the arguments needed to complete a standard reducer function.

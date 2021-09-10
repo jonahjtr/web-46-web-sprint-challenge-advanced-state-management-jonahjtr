@@ -17,8 +17,6 @@ class App extends Component {
       .get("http://localhost:3333/smurfs")
       .then((resp) => {
         this.props.fetchSuccess(resp.data);
-        console.log("axios call", resp.data);
-        // dispatch({type: FETCH_SUCCESS, payload:resp.data.results[0] });
       })
       .catch((err) => console.log("Axios Error", err));
   }
